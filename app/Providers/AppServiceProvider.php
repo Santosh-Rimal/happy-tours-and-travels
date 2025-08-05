@@ -29,9 +29,18 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (Schema::hasTable('trip_details')) {
-            $navtripdetails = \App\Models\Backend\TripDetail::with('category')->select('id', 'category_id', 'trip_name','trip_slug')->get();
+            $navtripdetails = \App\Models\Backend\TripDetail::with('category')->select('id', 'category_id',
+            'trip_name','trip_slug')->get();
             // dd($navtripdetails->toArray());
             \Illuminate\Support\Facades\View::share('navtripdetails', $navtripdetails);
+            
+            $limitednavtripdetails = \App\Models\Backend\TripDetail::with('category')
+            ->select('id', 'category_id', 'trip_name', 'trip_slug')
+            ->latest()
+            ->take(4)
+            ->get();
+            \Illuminate\Support\Facades\View::share('limitednavtripdetails', $limitednavtripdetails);
+
         }
 
         if (Schema::hasTable('affiliate_partners')) {

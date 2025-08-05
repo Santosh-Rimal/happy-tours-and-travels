@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 
 @section('content')
-<div class="container py-12 max-w-4xl mx-auto px-4 mt-[100px]">
+<div class="container py-12 max-w-4xl mx-auto px-4 mt-[123px]">
     <!-- Back button -->
     <div class="mb-8">
         <a href="{{ route('frontend.blogs') }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200">

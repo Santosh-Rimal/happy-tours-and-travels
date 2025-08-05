@@ -8,8 +8,10 @@ use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\VideoController;
 use App\Http\Controllers\frontend\GalleryController;
-use App\Http\Controllers\Frontend\Corporate_Responsibility;
+use App\Http\Controllers\Frontend\DestinationController;
 use App\Http\Controllers\Frontend\travelGuideController;
+use App\Http\Controllers\Frontend\CustomizeTripController;
+use App\Http\Controllers\Frontend\Corporate_Responsibility;
 
 Route::get('/',[IndexController::class,'index'])->name('frontend.index');
 Route::get('/blogs',[BlogController::class,'index'])->name('frontend.blogs');
@@ -25,8 +27,12 @@ Route::post('/contact-us/store',[ContactController::class,'store'])->name('front
 
 Route::get("/video", [VideoController::class, 'index'])->name("frontend.video");
 
+Route::get('/customize-trip', [CustomizeTripController::class, 'index'])->name('frontend.customize.trip');
+
 Route::get("/corporate-responsibility", [Corporate_Responsibility::class,
 'index'])->name("frontend.corporate_responsibility");
+
+Route::get("/destination", [DestinationController::class,'index'])->name('frontend.destination');
 
 Route::get('/travel-guide',[travelGuideController::class,'index'])->name('frontend.travel.guide');
 

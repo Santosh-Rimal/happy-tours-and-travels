@@ -1,7 +1,7 @@
 
 @extends('layouts.frontend.master')
 @section('content')
-<div class="container mt-[120px] max-w-7xl mx-auto px-4 mb-20">
+<div class="container mt-[120px] md:mt-[200px] max-w-7xl mx-auto px-4 mb-20">
     <div class="text-center mb-16">
         <h1 class="text-5xl font-bold text-gray-900 mb-4 relative inline-block">
             Our Blog
