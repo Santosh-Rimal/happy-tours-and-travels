@@ -89,8 +89,8 @@
                              <path d="M6 18L18 6M6 6l12 12" />
                          </svg>
                      </button>
-                     <img class="h-10 w-auto object-contain" src="{{ asset('logos/futsalmate_logo.png') }}"
-                         alt="futsalmatelogo">
+                     <img class="h-10 w-auto object-contain" src="{{ asset('images/logo.png') }}"
+                         alt="logo">
                  </div>
                  <div class="flex items-center space-x-2">
                      <img class="w-12 h-12 rounded-full object-cover shadow-xl" src="https://i.pravatar.cc/40"
@@ -107,7 +107,7 @@
                      class="hidden md:flex items-center justify-between bg-gray-800 px-6 py-4 border-b border-gray-700">
                      <h1 class="text-xl font-semibold">Welcome, Admin</h1>
                      <div class="flex items-center space-x-4">
-                         <img class="h-8 w-auto" src="{{ asset('logos/futsalmate_logo.png') }}" alt="Logo">
+                         <img class="h-8 w-auto" src="{{ asset('images/logo.png') }}" alt="Logo">
                          <img class="w-8 h-8 rounded-full" src="https://i.pravatar.cc/40" alt="Admin Profile">
                      </div>
                  </header>
