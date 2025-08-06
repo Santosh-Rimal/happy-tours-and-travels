@@ -28,6 +28,7 @@ Route::post('/contact-us/store',[ContactController::class,'store'])->name('front
 Route::get("/video", [VideoController::class, 'index'])->name("frontend.video");
 
 Route::get('/customize-trip', [CustomizeTripController::class, 'index'])->name('frontend.customize.trip');
+Route::post('/customize-trip/store', [CustomizeTripController::class, 'store'])->name('frontend.customize.trip.store');
 
 Route::get("/corporate-responsibility", [Corporate_Responsibility::class,
 'index'])->name("frontend.corporate_responsibility");
