@@ -66,7 +66,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','verified'])->group(f
     Route::resource('safetymeasures',SaftyController::class);
     Route::resource('culturaldoes',CulturalDoController::class);
     Route::resource('culturaldoesnots',CulturalDoNotController::class);
-    Route::resource('customizetrips',CustomizeTripController::class);
+    Route::resource('customizetrips',CustomizeTripController::class)->only(['index','show','destroy']);
 });
 
 require __DIR__.'/auth.php';

@@ -24,7 +24,6 @@
                         <td>{{ $trip->preferred_start_date->format('d M Y') }}</td>
                         <td>
                             <a class="btn btn-sm btn-info" href="{{ route('admin.customizetrips.show', $trip) }}">View</a>
-                            <a class="btn btn-sm btn-warning" href="{{ route('admin.customizetrips.edit', $trip) }}">Edit</a>
                             <form class="d-inline" action="{{ route('admin.customizetrips.destroy', $trip) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
