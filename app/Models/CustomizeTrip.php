@@ -13,7 +13,7 @@ class CustomizeTrip extends Model
 
      public function tripDetail()
      {
-     return $this->belongsTo(TripDetail::class);
+     return $this->belongsTo(TripDetail::class,'trip_id');
      }
 
      protected $casts = [

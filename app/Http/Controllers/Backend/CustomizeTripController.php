@@ -15,6 +15,7 @@ class CustomizeTripController extends Controller
     public function index()
     {
        $trips = CustomizeTrip::with('tripDetail')->latest()->get();
+    //    dd($trips->toArray());
        return view('backend.customizetrip.index', compact('trips'));
     }
 
@@ -23,8 +24,8 @@ class CustomizeTripController extends Controller
      */
     public function create()
     {
-        $trips=TripDetail::get();
-        return view('backend.customizetrip.create',compact('trips'));
+        // $trips=TripDetail::get();
+        // return view('backend.customizetrip.create',compact('trips'));
     }
 
     /**
@@ -32,21 +33,21 @@ class CustomizeTripController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
-       'name' => 'required|string|max:255',
-       'email' => 'required|email',
-       'phone' => 'required|string',
-       'country' => 'required|string',
-       'trip_id' => 'required|exists:trips,id',
-       'group_size' => 'required|integer|min:1',
-       'preferred_start_date' => 'required|date',
-       'duration' => 'required|integer|min:1',
-       'budget' => 'required|numeric',
-       'message' => 'nullable|string'
-       ]);
+    //    $request->validate([
+    //    'name' => 'required|string|max:255',
+    //    'email' => 'required|email',
+    //    'phone' => 'required|string',
+    //    'country' => 'required|string',
+    //    'trip_id' => 'required|exists:trips,id',
+    //    'group_size' => 'required|integer|min:1',
+    //    'preferred_start_date' => 'required|date',
+    //    'duration' => 'required|integer|min:1',
+    //    'budget' => 'required|numeric',
+    //    'message' => 'nullable|string'
+    //    ]);
 
-       CustomizeTrip::create($request->all());
-       return redirect()->route('customize-trips.index')->with('success', 'Trip request created!');
+    //    CustomizeTrip::create($request->all());
+    //    return redirect()->route('customize-trips.index')->with('success', 'Trip request created!');
     }
 
     /**
