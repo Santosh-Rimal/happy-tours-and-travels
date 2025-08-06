@@ -15,6 +15,11 @@ class CustomizeTripController extends Controller
         return view('frontend.customizetrip',compact('trips'));
     }
 
+     public function customizebyid($id){
+        $trips=TripDetail::get();
+        return view('frontend.customizetripById',compact('trips', 'id'));
+    }
+
 
      public function store(Request $request){
         $request->validate([
