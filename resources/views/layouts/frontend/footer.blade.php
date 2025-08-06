@@ -10,17 +10,16 @@
                     <li>
                         <a class="hover:text-blue-400" href="#">Recommendation Packages</a>
                     </li>
-                    <li><a class="hover:text-blue-400" href="#">Site Map</a></li>
                 </ul>
             </div>
 
             <!-- Middle Links -->
             <div>
                 <ul class="space-y-2 mt-10 sm:mt-0">
-                    <li><a class="hover:text-blue-400" href="{{route("frontend.destination")}}">Destinations</a></li>
-                    <li><a class="hover:text-blue-400" href="#">GHT</a></li>
+                    <li><a class="hover:text-blue-400" href="{{ route('frontend.destination') }}">Destinations</a></li>
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.gallery') }}">Photos</a></li>
-                    <li><a class="hover:text-blue-400" href="{{ route('frontend.customize.trip') }}">Customize Trip</a></li>
+                    <li><a class="hover:text-blue-400" href="{{ route('frontend.customize.trip') }}">Customize Trip</a>
+                    </li>
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.contact.us') }}">Contact Us</a></li>
                 </ul>
             </div>
