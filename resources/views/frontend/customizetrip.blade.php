@@ -12,13 +12,20 @@
                     Tell us your preferences and we'll craft the perfect adventure for you
                 </p>
             </div>
-
+            @if (session()->has('error'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                    <strong class="font-bold">Error!</strong>
+                    <span class="block sm:inline">{{ session('error') }}</span>
+                </div>
+            @endif
             <!-- Form Container -->
             <div class="bg-white shadow-xl rounded-lg overflow-hidden">
                 <div class="grid md:grid-cols-1">
                     <!-- Left Column - Form -->
                     <div class="p-8">
-                        <form class="space-y-6" id="customizeForm">
+                        <form class="space-y-6" id="customizeForm" action="{{ route('frontend.customize.trip.store') }}"
+                            method="post">
+                            @csrf
                             <!-- Personal Information -->
                             <div>
                                 <h3 class="text-lg font-medium text-gray-900 border-b border-gray-200 pb-2 mb-4">
@@ -309,7 +316,7 @@
                                             *</label>
                                         <select
                                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                                            id="trip_name" name="trip_name" required>
+                                            id="trip_name" name="trip_id" required>
                                             <option selected disabled>Select Trip</option>
                                             @foreach ($trips as $trip)
                                                 <option value="{{ $trip->id }}">{{ $trip->trip_name }}</option>
@@ -325,11 +332,13 @@
                                             id="group_size" type="number" name="group_size" min="1" required>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700" for="start_date">Preferred
+                                        <label class="block text-sm font-medium text-gray-700"
+                                            for="preferred_start_date">Preferred
                                             Start Date *</label>
                                         <input
                                             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                                            id="start_date" type="date" name="start_date" required>
+                                            id="preferred_start_date" type="date" name="preferred_start_date"
+                                            required>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700" for="duration">Trip
@@ -360,7 +369,7 @@
                                     Requests</label>
                                 <textarea
                                     class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                                    id="special_requests" name="special_requests" rows="3"></textarea>
+                                    id="special_requests" name="message" rows="3"></textarea>
                             </div>
                     </div>
                 </div>
@@ -512,5 +521,5 @@
         </div>
     </div>
     </div>
-</div>
+    </div>
 @endsection

@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('country');
-            $table->foreignId('trip_id')->constrained()->onDelete('cascade');
+            $table->foreignId('trip_id')->constrained('trip_details')->onDelete('cascade');
             $table->integer('group_size');
             $table->date('preferred_start_date');
             $table->integer('duration');
-            $table->decimal('budget', 10, 2);
+            $table->string('budget');
             $table->text('message');
             $table->timestamps();
         });

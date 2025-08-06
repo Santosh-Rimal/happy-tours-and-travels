@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CustomizeTrip extends Model
 {
+    protected $table='customize_trips';
     protected $fillable=['name','email','phone','country','trip_id','group_size','preferred_start_date','duration','budget','message'];
 
 
@@ -14,4 +15,9 @@ class CustomizeTrip extends Model
      {
      return $this->belongsTo(TripDetail::class);
      }
-}
+
+     protected $casts = [
+     'preferred_start_date' => 'date:Y-m-d',
+     ];
+
+}   

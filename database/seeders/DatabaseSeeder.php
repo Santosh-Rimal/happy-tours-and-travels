@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Prevention;
 use App\Models\User;
 use App\Models\Visa;
+use App\Models\Prevention;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\CustomizeTrip;
 use Illuminate\Database\Seeder;
+use App\Models\Backend\TripDetail;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -62,5 +64,28 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             GallerySeeder::class,
         ]);
-    }
+
+    //     if (TripDetail::count() === 0) {
+    //     TripDetail::factory()->count(3)->create(); // Optional: if factory exists
+    //     }
+
+    //     $tripIds = TripDetail::pluck('id')->toArray();
+
+    //     // Create 5 sample customize trips
+    //     foreach (range(1, 5) as $index) {
+    //     CustomizeTrip::create([
+    //     'name' => fake()->name(),
+    //     'email' => fake()->unique()->safeEmail(),
+    //     'phone' => fake()->phoneNumber(),
+    //     'country' => fake()->country(),
+    //     'trip_id' => fake()->randomElement($tripIds),
+    //     'group_size' => fake()->numberBetween(2, 10),
+    //     'preferred_start_date' => fake()->date(),
+    //     'duration' => fake()->numberBetween(5, 15),
+    //     'budget' => '$' . fake()->numberBetween(500, 3000),
+    //     'message' => fake()->sentence(12),
+    //     ]);
+    // }
+    
+}
 }
