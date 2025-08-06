@@ -38,6 +38,16 @@ class IndexController extends Controller
         
     }
 
+
+    public function recommend($trip_slug)
+    {
+    $tripdetail =
+    TripDetail::with('category','usefilinformation','notincludes','includes','itineray','aboutTrip','highlights')->where('trip_slug',
+    $trip_slug)->where('isrecommend',true)->firstOrFail();
+    return view('frontend.recommendation', compact('tripdetail'));
+
+    }
+
     
 
    

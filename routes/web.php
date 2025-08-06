@@ -41,6 +41,8 @@ Route::get('admin/dashboard',function(){
 
 Route::prefix('admin')->name('admin.')->middleware(['auth','verified'])->group(function(){
     Route::resource('tripdetails',TripDetailController::class);
+     Route::post('tripdetails/{tripdetail}/recommend', [TripDetailController::class, 'recommend'])
+     ->name('tripdetails.recommend');
     Route::resource('highlights',HighlightController::class);
     Route::resource('abouttrips',AboutTripController::class);
     Route::resource('itineraries',ItineraryController::class);

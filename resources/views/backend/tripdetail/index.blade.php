@@ -6,7 +6,7 @@
     {{-- Include Alpine.js for auto-hide --}}
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-    {{-- Create Success --}}
+    {{-- Flash Messages --}}
     @if (session('success'))
         <div class="mb-4 p-4 bg-green-600 text-white rounded shadow" x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)"
             x-show="show">
@@ -14,7 +14,6 @@
         </div>
     @endif
 
-    {{-- Update Success --}}
     @if (session('edit_update'))
         <div class="mb-4 p-4 bg-blue-600 text-white rounded shadow" x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)"
             x-show="show">
@@ -22,7 +21,6 @@
         </div>
     @endif
 
-    {{-- Delete Success --}}
     @if (session('delete'))
         <div class="mb-4 p-4 bg-red-600 text-white rounded shadow" x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)"
             x-show="show">
@@ -46,8 +44,7 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Trip Name
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Trip
-                            Category
-                        </th>
+                            Category</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                             Destination</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Duration
@@ -56,6 +53,8 @@
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                             Difficulty</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                            Is_Recommended</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Actions
                         </th>
                     </tr>
@@ -69,6 +68,19 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $trip->trip_duration }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">${{ number_format($trip->trip_price) }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $trip->trip_difficulty }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+
+                                <form method="POST" action="{{ route('admin.tripdetails.recommend', $trip->id) }}">
+                                    @csrf
+                                    <input type="hidden" name="is_recommend" value="{{ $trip->is_recommend ? 0 : 1 }}">
+                                    <button
+                                        class="px-3 py-1 rounded text-sm {{ $trip->is_recommend ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700' }} text-white"
+                                        type="submit">
+                                        {{ $trip->is_recommend ? 'Recommended' : 'Not Recommended' }}
+                                    </button>
+                                </form>
+
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <a class="text-blue-400 hover:text-blue-300 mr-3"
                                     href="{{ route('admin.tripdetails.edit', $trip->id) }}">Edit</a>
@@ -85,7 +97,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td class="text-center py-4 text-gray-400" colspan="6">No trips available.</td>
+                            <td class="text-center py-4 text-gray-400" colspan="8">No trips available.</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -95,4 +107,16 @@
             {{ $tripdetails->links('pagination::tailwind') }}
         </div>
     </div>
+
+    <script>
+        // Add confirmation for toggle buttons
+        document.querySelectorAll('.toggle-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (confirm('Are you sure you want to change the recommendation status?')) {
+                    this.submit();
+                }
+            });
+        });
+    </script>
 @endsection
