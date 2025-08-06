@@ -1,11 +1,11 @@
 @extends('layouts.backend.master')
 
 @section('content')
-    <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="min-h-screen  py-8 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden">
                 <!-- Form Header -->
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-8">
+                <div class="bg-gradient-to-r  px-6 py-8">
                     <div class="flex justify-between items-center">
                         <div>
                             <h1 class="text-2xl font-bold text-white">Edit About Page</h1>
@@ -28,12 +28,12 @@
 
                     <!-- Page Info Section -->
                     <div class="mb-10">
-                        <h2 class="text-xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-200">Page Information
+                        <h2 class="text-xl font-semibold text-white mb-6 pb-2 border-b border-gray-200">Page Information
                         </h2>
 
                         <div class="space-y-5">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Page Title</label>
+                                <label class="block text-sm font-medium text-white mb-2">Page Title</label>
                                 <input
                                     class="w-full px-4 py-3 border @error('page_title') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                                     type="text" name="page_title" placeholder="About Our Company"
@@ -44,7 +44,7 @@
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Page Subtitle</label>
+                                <label class="block text-sm font-medium text-white mb-2">Page Subtitle</label>
                                 <input
                                     class="w-full px-4 py-3 border @error('page_subtitle') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                                     type="text" name="page_subtitle" placeholder="Our story, mission and values"
@@ -59,7 +59,7 @@
                     <!-- Sections Container -->
                     <div class="mb-8">
                         <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-semibold text-gray-800">Page Sections</h2>
+                            <h2 class="text-xl font-semibold text-white">Page Sections</h2>
                             <button class="flex items-center text-blue-600 hover:text-blue-800 font-medium"
                                 id="preview-toggle" type="button">
                                 <svg class="h-5 w-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -76,7 +76,7 @@
                         <div class="space-y-4" id="sections-container">
                             <!-- Empty State -->
                             @if (!old('sections') && count($about->sections) === 0)
-                                <div class="text-center py-12 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300"
+                                <div class="text-center py-12 bg-gray-600 rounded-xl border-2 border-dashed border-gray-300"
                                     id="empty-state">
                                     <svg class="h-16 w-16 mx-auto text-gray-400" xmlns="http://www.w3.org/2000/svg"
                                         fill="none" viewBox="0 0 24 24" stroke="currentColor">

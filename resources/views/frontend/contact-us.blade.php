@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Contact Header -->
-<div class="bg-gray-100 py-16 mt-[93px]">
+<div class="bg-gray-100 py-16 mt-[93px] md:mt-[123px]">
     <div class="container mx-auto px-4 text-center">
         <h1 class="text-4xl font-bold text-gray-800 mb-4">Contact Hamro Tours and Travel</h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">

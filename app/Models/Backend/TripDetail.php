@@ -11,6 +11,7 @@ use PhpParser\Node\Expr\Include_;
 use App\Models\Backend\NotIncluded;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Backend\UsefulInformation;
+use App\Models\CustomizeTrip;
 
 class TripDetail extends Model
 {
@@ -66,5 +67,9 @@ class TripDetail extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function customizetrip(){
+        return $this->hasMany(CustomizeTrip::class);
     }
 }
