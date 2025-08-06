@@ -1,7 +1,7 @@
 @extends('layouts.frontend.single.master1')
 
 @section('content')
-    <section class="w-full pt-[25px]">
+    <section class="w-full pt-[25px] md:pt-[58px]">
         <div class="relative overflow-hidden">
             <img class="w-full h-auto md:h-[500px] object-cover object-center"
                 src="{{ asset('storage/' . $tripdetail->sliderimage) }}" alt="sliderIMage" />

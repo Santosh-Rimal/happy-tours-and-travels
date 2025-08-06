@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 
 @section('content')
-    <section class="py-12 bg-gray-50 mt-[93px]">
+    <section class="py-12 bg-gray-50 mt-[93px] md:mt-[123px]">
         <div class="container mx-auto px-4 md:px-8">
             <!-- Hero Section -->
             <div class="text-center mb-16">

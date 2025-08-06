@@ -8,7 +8,7 @@
                 <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
-        <img class="h-10 w-auto object-contain" src="" alt="futsalmatelogo">
+        <img class="h-10 w-auto object-contain" src="{{ asset('images/logo.png') }}" alt="logo">
     </div>
     <div class="flex items-center space-x-2">
         <img class="w-12 h-12 rounded-full object-cover shadow-xl transition-all duration-300 hover:scale-105"

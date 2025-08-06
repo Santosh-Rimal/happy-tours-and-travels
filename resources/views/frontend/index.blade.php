@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 
 @section('content')
-    <div class="pt-[93px] relative">
+    <div class="pt-[93px] md:pt-[123px] relative">
         <div class="swiper w-full h-[300px] md:h-[calc(100vh-93px)]">
             <div class="swiper-wrapper">
                 @forelse ($herosections as $key=>$herosection)
@@ -335,7 +335,7 @@
                     <div class="mb-4 px-6">{{ Str::limit(strip_tags($blog->content), 120) }}</div>
                     <hr class="text-gray-500 text-2xl mt-2 mb-2 mx-6" />
                     <a href="{{ route('frontend.blogs.show', $blog->slug) }}"
-                        class="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200 px-6 mt-2">
+                        class="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200 px-6 mt-2 pb-2">
                         Read More →
                     </a>
 

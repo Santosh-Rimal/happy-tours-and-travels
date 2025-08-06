@@ -1,11 +1,11 @@
 @extends('layouts.backend.master')
 
 @section('content')
-    <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="min-h-screen  py-8 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden">
                 <!-- Header -->
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-8">
+                <div class="border-b border-gray-600 px-6 py-8">
                     <div class="flex justify-between items-center">
                         <div>
                             <h1 class="text-2xl font-bold text-white">Team Member Details</h1>
@@ -28,9 +28,9 @@
                             <img class="w-full rounded-lg shadow-md" src="{{ $team->image_url }}" alt="{{ $team->name }}">
                         </div>
                         <div class="md:w-2/3">
-                            <h2 class="text-2xl font-bold text-gray-800">{{ $team->name }}</h2>
-                            <p class="text-lg text-indigo-600 mt-1">{{ $team->position }}</p>
-                            <p class="text-gray-500 mt-4">{{ $team->description }}</p>
+                            <h2 class="text-2xl font-bold text-white">{{ $team->name }}</h2>
+                            <p class="text-lg text-white mt-1">{{ $team->position }}</p>
+                            <p class="text-white mt-4">{{ $team->description }}</p>
 
                             <div class="mt-6">
                                 <span
@@ -42,7 +42,7 @@
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="flex justify-end pt-6 border-t border-gray-200 mt-8">
+                    <div class="flex justify-end pt-6  mt-8">
                         <a class="px-6 py-3 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                             href="{{ route('admin.teams.index') }}">
                             Back to List
