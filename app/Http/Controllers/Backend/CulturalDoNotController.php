@@ -22,7 +22,7 @@ class CulturalDoNotController extends Controller
      */
     public function create()
     {
-        return view('backend.travelguide.culturaldo.ce');
+        return view('backend.travelguide.culturaldonot.ce');
     }
 
     /**
@@ -80,6 +80,6 @@ class CulturalDoNotController extends Controller
     public function destroy(CulturalDoNot $culturaldoesnot)
     {
        $culturaldoesnot->delete();
-       return redirect()->route('culturaldoesnots.index')->with('success', 'Deleted successfully.');
+       return redirect()->route('admin.culturaldoesnots.index')->with('success', 'Deleted successfully.');
     }
 }

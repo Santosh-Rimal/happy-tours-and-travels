@@ -38,3 +38,5 @@ Route::get("/destination", [DestinationController::class,'index'])->name('fronte
 Route::get('/travel-guide',[travelGuideController::class,'index'])->name('frontend.travel.guide');
 
 Route::get('/trip/{slug}', [IndexController::class,'single'])->name('frontend.trip.show');
+
+Route::get('/customize-trip/{id}', [CustomizeTripController::class, 'customizebyid'])->name('frontend.customize.trip.customize');
