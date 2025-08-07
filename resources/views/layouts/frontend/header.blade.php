@@ -29,7 +29,7 @@
                 <div class="group relative px-2 py-4 rounded-lg transition-all duration-200">
                     <a href="{{ route('frontend.trip.show', $limitednavtripdetail->trip_slug) }}"
                         class="flex items-center text-gray-700 hover:text-orange-600 transition-colors text-sm">
-                        <span class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all group-hover:after:w-full">
+                        <span class="relative after:absolute  after:left-0 after:w-0 after:h-0.5  after:transition-all group-hover:after:w-full">
                             {{ $limitednavtripdetail->trip_name }}
                         </span>
                         <svg class="ml-1 w-4 h-4 text-gray-400 group-hover:text-orange-500 transition-transform group-hover:rotate-180"
@@ -57,46 +57,46 @@
             <div class="w-px h-6 bg-gray-200 mx-2"></div>
             
             <!-- All Treks Dropdown (Desktop) -->
-            <div class="group relative px-2 py-4 rounded-lg transition-all duration-200">
-                <button class="flex items-center text-gray-700 hover:text-orange-600 transition-colors text-sm">
-                    <span class="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all group-hover:after:w-full">
-                        All Treks
-                    </span>
-                    <svg class="ml-1 w-4 h-4 text-gray-400 group-hover:text-orange-500 transition-transform group-hover:rotate-180" 
-                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                
-                <!-- Mega Dropdown -->
-                <div class="absolute right-0 mt-1 w-[800px] bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right z-10 border border-gray-100 overflow-hidden">
-                    <div class="p-6 grid grid-cols-3 gap-6">
-                        @forelse ($navtripdetails as $navtripdetail)
-                        <div>
-                            <h4 class="text-sm font-semibold text-orange-600 pb-2 mb-2 border-b border-orange-100">
-                                {{ $navtripdetail->category->name }}
-                            </h4>
-                            <ul class="space-y-2">
-                                <li>
-                                    <a href="{{ route('frontend.trip.show', $navtripdetail->trip_slug) }}"
-                                       class="flex items-center text-sm text-gray-700 hover:text-orange-600 transition-colors py-1.5">
-                                        <span class="w-1.5 h-1.5 bg-orange-300 rounded-full mr-2"></span>
-                                        {{ $navtripdetail->trip_name }}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        @empty
-                        <div class="col-span-3 text-center py-8">
-                            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <p class="mt-2 text-sm text-gray-500">No treks available at the moment</p>
-                        </div>
-                        @endforelse
-                    </div>
-                </div>
+           <div class="group relative px-2 py-4 rounded-lg transition-all duration-200 cursor-pointer">
+    <button class="flex items-center text-gray-700 hover:text-orange-600 transition-colors text-sm cursor-pointer">
+        <span class="relative after:absolute after:left-0 after:w-0 after:h-0.5 after:transition-all group-hover:after:w-full">
+            All Treks
+        </span>
+        <svg class="ml-1 w-4 h-4 text-gray-400 group-hover:text-orange-500 transition-transform group-hover:rotate-180" 
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+    </button>
+    
+    <!-- Mega Dropdown -->
+    <div class="absolute right-0 mt-1 w-[800px] bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right z-10 border border-gray-100 overflow-hidden">
+        <div class="p-6 grid grid-cols-3 gap-6">
+            @forelse ($navtripdetails as $navtripdetail)
+            <div>
+                <h4 class="text-sm font-semibold text-orange-600 pb-2 mb-2 border-b border-orange-100">
+                    {{ $navtripdetail->category->name }}
+                </h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="{{ route('frontend.trip.show', $navtripdetail->trip_slug) }}"
+                           class="flex items-center text-sm text-gray-700 hover:text-orange-600 transition-colors py-1.5 cursor-pointer">
+                            <span class="w-1.5 h-1.5 bg-orange-300 rounded-full mr-2"></span>
+                            {{ $navtripdetail->trip_name }}
+                        </a>
+                    </li>
+                </ul>
             </div>
+            @empty
+            <div class="col-span-3 text-center py-8">
+                <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <p class="mt-2 text-sm text-gray-500">No treks available at the moment</p>
+            </div>
+            @endforelse
+        </div>
+    </div>
+</div>
         </div>
 
         <div class="hidden md:flex items-center space-x-10">
