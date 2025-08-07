@@ -30,7 +30,7 @@
                         <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200"
                             href="#itenary">ITINERARY</a>
                         <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200"
-                            href="#expect">WHAT
+                            href="#whats-included">WHAT
                             TO EXPECT</a>
                         <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200"
                             href="#useful-info">USEFUL
@@ -212,7 +212,7 @@
                 @endif
 
                 <!-- What's Included -->
-                <div class="px-4 py-6" id="expect" id="whats-included">
+                <div class="px-4 py-6"  id="whats-included">
                     <h2 class="text-[24px] font-bold">What's Included</h2>
 
                     @if ($tripdetail->includes)
