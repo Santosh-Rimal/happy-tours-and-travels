@@ -17,6 +17,7 @@ class TripDetail extends Model
 {
     protected $fillable = [
         'category_id',
+        'is_recommend',
         'trip_name',
         'trip_slug',
         'destination',

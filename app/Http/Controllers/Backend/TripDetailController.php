@@ -104,4 +104,15 @@ $edittripdetail['sliderimage'] = $request->file('sliderimage')->store('tripslide
         $tripdetail->delete();
         return redirect()->route('admin.tripdetails.index')->with('delete', 'Trip detail Deleted successfully.');
     }
+
+    public function recommend(Request $request, $id)
+    {
+        // dd($request->all());
+    $trip = TripDetail::findOrFail($id);
+    $trip->update([
+    'is_recommend' => $request->is_recommend
+    ]);
+
+    return back()->with('edit_update', 'Trip recommendation status updated!');
+    }
 }

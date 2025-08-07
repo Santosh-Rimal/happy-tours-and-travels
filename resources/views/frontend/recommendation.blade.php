@@ -1,364 +1,295 @@
-@extends('layouts.frontend.single.master1')
+@extends('layouts.frontend.master')
 
 @section('content')
-    <section class="w-full pt-[25px] md:pt-[58px]">
-        <div class="relative overflow-hidden">
-            <img class="w-full h-auto md:h-[500px] object-cover object-center"
-                src="{{ asset('storage/' . $tripdetail->sliderimage) }}" alt="sliderIMage" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 md:pb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
-                    Welcome to Our Site
-                </h2>
-                <p class="text-lg md:text-xl text-gray-200 max-w-2xl">
-                    {{ $tripdetail->trip_name }}
-                </p>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Secondary Navbar (Becomes sticky below main header) -->
-    <div class="secondary-nav bg-gray-800 w-full relative transition-all duration-300" id="secondary-nav">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative flex h-16 items-center justify-between">
-                <div class="flex items-center overflow-x-auto py-2 hide-scrollbar">
-                    <div class="flex space-x-1 md:space-x-4">
-                        <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-gray-700 transition-colors duration-200"
-                            href="#overview">OVERVIEW</a>
-                        <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200"
-                            href="#itenary">ITINERARY</a>
-                        <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200"
-                            href="#expect">WHAT
-                            TO EXPECT</a>
-                        <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200"
-                            href="#useful-info">USEFUL
-                            INFO</a>
-                        <a class="whitespace-nowrap px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200"
-                            href="#">Section
-                            5</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-    <div class="h-auto w-full bg-gray-200 ">
-        <div class="max-w-7xl mx-auto  flex flex-col md:flex-row justify-start md:justify-between gap-4 mt-10 items-center">
-            <!-- Column 1 -->
-            <div class="">
-                <button class="bg-red-800 px-4 py-2 text-white font-bold m-3 text-sm">
-                    TRIP DETAILS</button><br />
-                <p class="m-3">
-                    <span class="font-bold text-gray-700">Trip Name: </span><span
-                        class="text-gray-700">{{ $tripdetail->trip_name }}</span>
-                </p>
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold text-gray-700">Destinations: </span><span
-                        class="text-gray-700">{{ $tripdetail->destination }}</span>
-                </p>
-
-                <p class="m-3">
-                    <span class="font-bold text-gray-700">Trip Price: </span><span
-                        class="text-gray-700">{{ $tripdetail->trip_price }}</span>
-                </p>
-
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold text-gray-700">Trip Style: </span><span
-                        class="text-gray-700">{{ $tripdetail->trip_style }}</span>
-                </p>
-
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold text-gray-700">Trip Duration: </span><span
-                        class="text-gray-700">{{ $tripdetail->trip_duration }}</span>
-                </p>
-
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold text-gray-700">Food: </span><span
-                        class="text-gray-700">{{ $tripdetail->food }}</span>
-                </p>
-
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold text-gray-700">Group Size: </span><span
-                        class="text-gray-700">{{ $tripdetail->group_size }}</span>
-                </p>
-                <hr class="text-gray-400" />
-            </div>
-            <!-- Column 2 -->
-            <div class="text-gray-700 mt-4 md:mt-3 ">
-                <p class="m-3 text-start">
-                    <span class="font-bold">Trip Difficulty: </span><span>{{ $tripdetail->trip_difficulty }}</span>
-                </p>
-
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold">Transport: </span><span>{{ $tripdetail->transportation }}</span>
-                </p>
-
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold">Accommodation: </span><span>{{ $tripdetail->accommodation }}</span>
-                </p>
-
-                <hr class="text-gray-400" />
-                <p class="m-3">
-                    <span class="font-bold">Max Elevation: </span><span> {{ $tripdetail->max_elevation }}</span>
-                </p>
-                <hr class="text-gray-400" />
-            </div>
-
-            <!-- Column 3 -->
-            <div class="bg-white p-4 w-[400px] flex flex-col items-center justify-center">
-                <p class="text-gray-700 font-semibold">Price from</p>
-                <div class="text-blue-900 font-bold text-[23px]">
-                    US$ 144
-                    <span class="line-through text-gray-500 text-[18px]">US$ 198</span>
-                </div>
-                <p class="text-gray-700 mb-4">All Inclusive Per Person</p>
-
-                <div class="text-blue-900 font-bold text-[20px] mb-2">
-                    Why Book With Us?
-                </div>
-                <ul
-                    class="text-gray-700 font-semibold list-disc list-inside flex flex-col items-start justify-center ml-16 md:ml-0">
-                    <li>Serving since 1995</li>
-                    <li>Run by local experts</li>
-                    <li>9% of our profit goes to Social Cause</li>
-                    <li>100+ Managed Tours</li>
-                    <li>No Hassle price guarantee</li>
-                    <li>Repeating Customers</li>
-                </ul>
-
-                <div class="flex flex-col sm:flex-row gap-4 mt-4">
-                   
-                    <a
-                        href="{{ route('frontend.customize.trip.customize', $tripdetail->id) }}"  
-                        class="text-blue-700 border border-blue-500 font-semibold px-4 py-2 rounded hover:bg-blue-500 hover:cursor-pointer hover:text-white transition-colors duration-500">
-                        CUSTOMIZE TRIP
-                </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="h-auto w-full bg-white ">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 mt-10 items-center md:items-start justify-center">
-            <!-- Column 1 -->
-            <div class="text-gray-700 flex-[2]">
-                @if ($tripdetail->highlights)
-                    <div class="px-4 py-6">
-                        <h2 class="text-2xl font-semibold mb-4">Highlights</h2>
-                        @forelse ($tripdetail->highlights as $key=>$highlights)
-                            <ul class="space-y-3">
-                                @forelse($highlights->highlights as $key=>$highlight)
-                                    <li class="flex items-start gap-2">
-                                        <span class="text-blue-500" />➜</span>
-                                        <p>
-                                           {{ $highlight }}
-                                        </p>
-                                    </li>
-                                @empty
-                                @endforelse
-
-                            </ul>
-                        @empty
-                        @endforelse
-                    </div>
-                @endif
-                @if ($tripdetail->aboutTrip)
-                    <div id="overview" class="px-4 py-6">
-                        @forelse ($tripdetail->aboutTrip as $key=> $abouttrip)
-                            <h2 class="text-3xl font-bold mb-4">
-                                {{ $abouttrip->title }}
-                            </h2>
-                            <p class="space-y-3">
-                                {!! $abouttrip->trip_description !!}
+    <div class="pt-[93px] md:pt-[123px] relative">
+        <div class="swiper w-full h-[300px] md:h-[calc(100vh-93px)]">
+            <div class="swiper-wrapper">
+                @forelse ($herosections as $key=>$herosection)
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide relative">
+                        <img class="w-full h-full object-cover" src="{{ asset('storage/' . $herosection->heroimage) }}"
+                            alt="Slide 1" />
+                        <div
+                            class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-center px-4">
+                            <p class="text-lg sm:text-2xl md:text-4xl font-semibold max-w-3xl mx-auto">
+                                {{ $herosection->herotitle }}
                             </p>
-                        @empty
-                        @endforelse
-
-                    </div>
-                @endif
-
-                <!-- Itinerary -->
-                @if ($tripdetail->itineray)
-                    <div id="itenary" class="px-4 py-6">
-                        <h2 class="text-[24px] font-bold">Itinerary</h2>
-
-                        @forelse ($tripdetail->itineray as $key=>$itineray)
-                            <div class="itinerary-block">
-                                <div class="flex items-center justify-between mt-4 space-x-4">
-                                    <div class="flex items-center gap-2">
-                                        <span>📍</span>
-                                        <span class="text-blue-400 text-base font-semibold flex">
-                                            <p class="ml-1">{{ $itineray->title }}</p>
-                                    </div>
-                                    <span class="text-2xl icon cursor-pointer toggle-btn px-10"
-                                        onclick="toggleDetails(this)">+</span>
-                                </div>
-                                <div class="mt-2 ml-8  hidden text-gray-600 toggle-content">
-                                    {{ $itineray->description }}
-                                </div>
-                            </div>
-                        @empty
-                        @endforelse
-
-                    </div>
-                @endif
-
-                <!-- What's Included -->
-                <div id="expect" class="px-4 py-6" id="whats-included">
-                    <h2 class="text-[24px] font-bold">What's Included</h2>
-
-                    @if ($tripdetail->includes)
-                        <div class="itinerary-block">
-                            <div class="flex items-center justify-between mt-4">
-                                <div class="flex items-center gap-2 space-x-6">
-                                    <span class="toggle-icon cursor-pointer text-2xl font-bold">+</span>
-                                    <span class="text-blue-400 text-base font-semibold flex">Included</span>
-                                </div>
-                            </div>
-                            @forelse ($tripdetail->includes as $key=>$includes)
-                                <div class="mt-2 ml-10 hidden text-gray-600 toggle-content">
-                                    <ul>
-                                        @forelse ($includes->includes as $key=>$include)
-                                            <li>
-                                                - {{ $include }}
-                                            </li>
-                                        @empty
-                                        @endforelse
-                                    </ul>
-                                </div>
-
-                            @empty
-                            @endforelse
                         </div>
-                    @endif
-
-                    @if ($tripdetail->notincludes)
-                        <div id="itenary" class="itinerary-block">
-                            <div class="flex items-center justify-between mt-4">
-                                <div class="flex items-center gap-2 space-x-6">
-                                    <span class="toggle-icon cursor-pointer text-2xl font-bold">+</span>
-                                    <span class="text-blue-400 text-base font-semibold flex">Not Included</span>
-                                </div>
-                            </div>
-                            @forelse ($tripdetail->notincludes as $key=>$notincludes)
-                                <div class="mt-2 ml-10  hidden text-gray-600 toggle-content">
-                                    <ul>
-                                        @forelse ($notincludes->notincludes as $key=>$notinclude)
-                                            <li>
-                                                -{{ $notinclude }}
-                                            </li>
-                                        @empty
-                                        @endforelse
-                                    </ul>
-                                </div>
-                            @empty
-                            @endforelse
-                        </div>
-                    @endif
-                </div>
-                @if ($tripdetail->usefilinformation)
-                    <div id="useful-info" class="px-4 py-6">
-                        <h2 class="text-2xl font-semibold mb-4">Useful Information</h2>
-                        <ul class="space-y-3">
-                            @forelse ($tripdetail->usefilinformation as $usefilinfo)
-                                <li class="flex items-start gap-2">
-                                    {{-- <span class="text-blue-500">⭐</span> --}}
-                                    <p class="">
-
-                                        <strong>{{ $usefilinfo->title }}</strong> –
-                                        {!! $usefilinfo->description !!}
-
-                                    </p>
-                                </li>
-                            @empty
-                                <li>No useful information available.</li>
-                            @endforelse
-                        </ul>
                     </div>
-                @endif
-
+                @empty
+                    <p
+                        class="flex w-full items-center justify-center h-[300px] md:h-[calc(100vh-93px)] text-red-500 font-bold text-2xl">
+                        Sorry No Data Found</p>
+                @endforelse
             </div>
 
-            <!-- Column 2 -->
-            <div class="bg-blue-300 p-4 w-[400px] flex flex-col items-center justify-center">
-                <div class="">
-                    <h2 class="font-bold text-[20px] text-start text-[#1f398e]">How Can I Help You?</h2>
-                    <div class="flex gap-6 mt-4">
-                        <div class="w-[150px] h-[150px] bg-green-300">
-                            <img class="w-full h-full object-center object-cover rounded-md" src="https://images.unsplash.com/photo-1745933115134-9cd90e3efcc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D" alt="hdjdj">
-                        </div>
+            <!-- Swiper Navigation and Pagination -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
 
-                        <div class="flex flex-col items-start">
-                            <h2 class="mt-1 text-[20px] font-bold text-[#1f398e]">Hari Pathak</h2>
-                            <p class="text-base font-normal text-black">Operation Manager</p>
-
-                            <h2 class="mt-4 text-base font-bold text-[#1f398e]">+977 9876550033</h2>
-                            <p class="text-base font-normal text-black">Call, Viber & WhatsApp </p>
+    <div class="max-w-6xl mx-auto pt-20">
+        <h2 class="text-2xl md:text-4xl text-center md:text-start font-normal">
+            Explore by <span class="text-black text-3xl md:text-5xl font-bold">
+                @foreach ($tripdetails as $key => $tripdetail)
+                    {{ $tripdetail->herotitle }}
+                @endforeach
+            </span>
+        </h2>
+        <div class="mt-10 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+            @forelse ($tripdetails as $key=>$tripdetail)
+                <a class="group flex flex-col w-[320px] h-[500px] shadow-2xl cursor-pointer transform transition duration-300 hover:scale-105"
+                    href="{{ route('frontend.trip.show', $tripdetail->trip_slug) }}">
+                    <div class="w-full h-[280px] overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115"
+                            src="{{ asset('storage/' . $tripdetail->sliderimage) }}" alt="" />
+                    </div>
+                    <h2 class="font-bold text-[20px] pt-8 px-6 transition-colors duration-300 group-hover:text-blue-400">
+                        {{ $tripdetail->trip_name }}
+                    </h2>
+                    <hr class="text-gray-500 text-2xl mt-6 mb-4 mx-6" />
+                    <div class="flex mt-4 space-x-6 px-6 items-center">
+                        <img class="rounded-full w-[60px] h-[60px]" src="{{ asset('storage/' . $tripdetail->sliderimage) }}"
+                            alt="hgf" />
+                        <div class="flex flex-col">
+                            <p class="text-base font-normal text-gray-700">Duration</p>
+                            <p class="text-[22px] text-blue-400 font-bold"> {{ $tripdetail->trip_duration }}</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="flex flex-col items-center justify-center mt-10 py-8 px-3 bg-white">
-                    <h2 class="mx-2 bg-white shadow-xl px-8 py-2 mt-[-50px] text-[#1f398e] font-semibold text-base">SEND US YOUR ENQUIRY</h2>
-                    <p class="mt-8 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod atque doloremque exercitationem labore asperiores consectetur unde necessitatibus, quasi explicabo laboriosam!</p>
-                </div>
-
-
-            </div>
-
+                </a>
+            @empty
+                <p>No data found</p>
+            @endforelse
         </div>
 
     </div>
+
+    <!-- Welcome -->
+
+    <div class="w-full h-auto flex justify-center items-center py-12 bg-[#03578C] text-white">
+        <div class="max-w-6xl flex flex-col md:flex-row justify-between items-center gap-10 px-6">
+            <!-- Left Section -->
+            <div class="flex-1">
+                <h1 class="text-white text-[16px]">Welcome to</h1>
+                <h1 class="text-white text-[32px] font-bold">
+                    Himalayan Ecological Trekking
+                </h1>
+
+                <p class="text-white mt-2">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
+                    assumenda quidem eaque voluptate doloribus est illum molestiae,
+                    itaque, quisquam nemo, nobis ullam dolor modi fugit doloremque
+                    quaerat.
+                </p>
+
+                <div class="readmore-content mt-2 text-white text-sm">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Distinctio assumenda quidem eaque voluptate doloribus est illum
+                        molestiae, itaque, quisquam nemo, nobis ullam dolor modi fugit
+                        doloremque quaerat. Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Distinctio assumenda quidem eaque voluptate
+                        doloribus est illum molestiae, itaque, quisquam nemo, nobis ullam
+                        dolor modi fugit doloremque quaerat. Lorem ipsum dolor sit amet
+                        consectetur, adipisicing elit. Distinctio assumenda quidem eaque
+                        voluptate doloribus est illum molestiae, itaque, quisquam nemo,
+                        nobis ullam dolor modi fugit doloremque quaerat.
+                    </p>
+                </div>
+
+                <button
+                    class="mt-4 bg-[#F59E0B] px-4 py-2 rounded-md text-white cursor-pointer hover:bg-yellow-800 transition duration-300"
+                    id="readmore-btn">
+                    Read more +
+                </button>
+            </div>
+
+            <!-- Right Section -->
+            <div class="flex-1">
+                <h1 class="text-[24px] text-white font-extrabold mb-4">
+                    Why trekking with us?
+                </h1>
+
+                <div class="space-y-4">
+                    <!-- Accordion Items -->
+                    <div class="border-b border-white pb-3">
+                        <button class="w-full flex justify-between items-center text-left accordion-toggle">
+                            <span class="text-lg font-bold">Full Customized Trips</span>
+                            <span class="text-2xl icon cursor-pointer">+</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-sm">
+                            <div class="py-2">
+                                We provide fully personalized trekking experiences tailored to
+                                your preferences and pace.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-white pb-3">
+                        <button class="w-full flex justify-between items-center text-left accordion-toggle">
+                            <span class="text-lg font-bold">100+ Managed Tours</span>
+                            <span class="text-2xl icon cursor-pointer">+</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-sm">
+                            <div class="py-2">
+                                Explore a wide range of professionally managed tours designed
+                                for all levels of trekkers.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-white pb-3">
+                        <button class="w-full flex justify-between items-center text-left accordion-toggle">
+                            <span class="text-lg font-bold">Run by local Operators</span>
+                            <span class="text-2xl icon cursor-pointer">+</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-sm">
+                            <div class="py-2">
+                                Our tours are operated by local experts, ensuring authenticity
+                                and community support.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-white pb-3">
+                        <button class="w-full flex justify-between items-center text-left accordion-toggle">
+                            <span class="text-lg font-bold">Serving Since 1995</span>
+                            <span class="text-2xl icon cursor-pointer">+</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-sm">
+                            <div class="py-2">
+                                With over 25 years of experience, we are a trusted name in
+                                trekking adventures.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-white pb-3">
+                        <button class="w-full flex justify-between items-center text-left accordion-toggle">
+                            <span class="text-lg font-bold">Crowd Escape Trips</span>
+                            <span class="text-2xl icon cursor-pointer">+</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-sm">
+                            <div class="py-2">
+                                Discover peaceful paths away from the crowds for a truly
+                                serene trekking experience.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Articles and Travel Tips -->
+
+    {{-- <div class="max-w-6xl mx-auto pt-20">
+        <h2 class="text-2xl md:text-4xl text-center md:text-start font-normal">Articles and Travel Tips</h2>
+
+        <div class="mt-10 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+            <div
+                class="group flex flex-col w-[320px] h-[500px] shadow-2xl cursor-pointer transform transition duration-300 hover:scale-105">
+                <div class="w-full h-[280px] overflow-hidden">
+                    <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115"
+                        src="{{ asset('images/Hero2.jpeg') }}" alt="" />
+                </div>
+                <h2 class="font-bold text-[20px] pt-8 px-6 transition-colors duration-300 group-hover:text-blue-400">
+                    Great Himalayan Trail
+                </h2>
+                <hr class="text-gray-500 text-2xl mt-6 mb-4 mx-6" />
+                <div class="flex mt-4 space-x-6 px-6 items-center">
+                    <img class="rounded-full w-[60px] h-[60px]" src="{{ asset('images/Hero2.jpeg') }}" alt="hgf" />
+                    <div class="flex flex-col">
+                        <p class="text-base font-normal text-gray-700">Duration</p>
+                        <p class="text-[22px] text-blue-400 font-bold">154 Days</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="group flex flex-col w-[320px] h-[500px] shadow-2xl cursor-pointer transform transition duration-300 hover:scale-105">
+                <div class="w-full h-[280px] overflow-hidden">
+                    <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115"
+                        src="{{ asset('images/Hero3.jpeg') }}" alt="" />
+                </div>
+                <h2 class="font-bold text-[20px] pt-8 px-6 transition-colors duration-300 group-hover:text-blue-400">
+                    Great Himalayan Trail
+                </h2>
+                <hr class="text-gray-500 text-2xl mt-6 mb-4 mx-6" />
+                <div class="flex mt-4 space-x-6 px-6 items-center">
+                    <img class="rounded-full w-[60px] h-[60px]" src="{{ asset('images/Hero2.jpeg') }}" alt="hgf" />
+                    <div class="flex flex-col">
+                        <p class="text-base font-normal text-gray-700">Duration</p>
+                        <p class="text-[22px] text-blue-400 font-bold">154 Days</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="group flex flex-col w-[320px] h-[500px] shadow-2xl cursor-pointer transform transition duration-300 hover:scale-105">
+                <div class="w-full h-[280px] overflow-hidden">
+                    <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115"
+                        src="{{ asset('images/Hero1.jpeg') }}" alt="" />
+                </div>
+                <h2 class="font-bold text-[20px] pt-8 px-6 transition-colors duration-300 group-hover:text-blue-400">
+                    Great Himalayan Trail
+                </h2>
+                <hr class="text-gray-500 text-2xl mt-6 mb-4 mx-6" />
+                <div class="flex mt-4 space-x-6 px-6 items-center">
+                    <img class="rounded-full w-[60px] h-[60px]" src="{{ asset('images/Hero2.jpeg') }}" alt="hgf" />
+                    <div class="flex flex-col">
+                        <p class="text-base font-normal text-gray-700">Duration</p>
+                        <p class="text-[22px] text-blue-400 font-bold">154 Days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
     @include('layouts.frontend.affiliatePartners')
 
+    {{-- Blogs Section  --}}
 
-    <script>
-        // scroll is landing too far down, probably because the sticky header or navbar is overlapping the section. This is common when you have a fixed/sticky navbar. so to fix this we are using this js
+    <div class="container  mt-[140px] max-w-6xl mx-auto px-6 mb-10">
+        <div class="flex items-center justify-between ">
+            <h2 class="text-2xl md:text-4xl text-center md:text-start font-normal">Blogs</h2>
+            <a class=" bg-blue-500 hover:bg-blue-900 px-4 py-4 rounded-lg cursor-pointer hover:text-white text-gray-900 text-base"
+                href="{{ route('frontend.blogs') }}">Explore
+                All</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 md:mt-20 place-items-center">
+            @foreach ($blogs as $blog)
+                <div
+                    class="group flex flex-col w-[320px] h-[500px] shadow-2xl cursor-pointer transform transition duration-300 hover:scale-105">
+                    @if ($blog->image)
+                        <div class="w-full h-[280px] overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-115"
+                                src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" />
+                        </div>
+                        {{-- <img src="{{ asset('storage/'.$blog->image) }}" alt="{{ $blog->title }}" class="rounded mb-4 h-48 w-full object-cover"> --}}
+                    @endif
+                    <h2 class="font-bold text-[20px] pt-8 px-6 transition-colors duration-300 group-hover:text-blue-400 ">
+                        {{ $blog->title }}</h2>
+                    <div class="text-gray-600 text-sm mb-2 px-6 transitions-colors duration-300 mt-3">
+                        {{ $blog->created_at->format('M d, Y') }}</div>
+                    <div class="mb-4 px-6">{{ Str::limit(strip_tags($blog->content), 120) }}</div>
+                    <hr class="text-gray-500 text-2xl mt-2 mb-2 mx-6" />
+                    <a class="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200 px-6 mt-2 pb-2"
+                        href="{{ route('frontend.blogs.show', $blog->slug) }}">
+                        Read More →
+                    </a>
 
-        //Why this works?
-        //It finds the clicked anchor's href
+                </div>
+            @endforeach
+        </div>
 
-        //Measures the height of the sticky navbar
+    </div>
 
-        //Scrolls to the section minus that offset
+    {{-- Gallery Section --}}
 
-        //Smoothly scrolls without hiding the top part of the section
+    @include('layouts.frontend.indexgallery')
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
-
-                if (target) {
-                    e.preventDefault();
-
-                    // Measure offset height of your sticky header (adjust if needed)
-                    const headerOffset = document.getElementById('secondary-nav')?.offsetHeight || 80;
-
-                    const elementPosition = target.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-
-                    // Optionally, update URL hash without jumping
-                    history.pushState(null, null, targetId);
-                }
-            });
-        });
-    </script>
-
-
-
+    {{-- Footer Section --}}
 @endsection

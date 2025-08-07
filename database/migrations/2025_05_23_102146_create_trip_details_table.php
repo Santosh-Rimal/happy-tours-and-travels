@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate()->nullable();
             $table->string('trip_name')->nullable();
+            $table->boolean('is_recommend')->default(false);
             $table->string('trip_slug')->nullable();
             $table->string('destination')->nullable();
             $table->string('trip_style')->nullable(); // changed from date to string

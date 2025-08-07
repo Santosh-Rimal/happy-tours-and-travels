@@ -8,7 +8,8 @@
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.index') }}">Home</a></li>
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.about') }}">About Company</a></li>
                     <li>
-                        <a class="hover:text-blue-400" href="#">Recommendation Packages</a>
+                        <a class="hover:text-blue-400" href="{{ route('frontend.recommendation.index') }}">Recommendation
+                            Packages</a>
                     </li>
                 </ul>
             </div>
@@ -30,7 +31,8 @@
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.video') }}">Videos</a></li>
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.blogs') }}">Blogs</a></li>
                     <li>
-                        <a class="hover:text-blue-400" href="{{ route('frontend.corporate_responsibility') }}">Corporate
+                        <a class="hover:text-blue-400"
+                            href="{{ route('frontend.corporate_responsibility') }}">Corporate
                             Social Responsibilities</a>
                     </li>
                 </ul>

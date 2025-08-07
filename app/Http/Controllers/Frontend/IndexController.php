@@ -38,7 +38,24 @@ class IndexController extends Controller
         
     }
 
+
+    public function test()
+    {
+         $blogs = Blog::latest()->limit(3)->get();
     
+         dd($blogs);
+         $galleries = Gallery::latest()->limit(3)->get();
+        
+         $category=Category::latest()->select('id')->first();
+         // dd($category_id);
+         $tripdetails =
+         TripDetail::with('category')->where('category_id',$category->id)->inRandomOrder()->limit(6)->get();
+         // dd($tripdetails->toArray());
+         $herosections=Herosection::get();
+         // dd($herosections);
+
+ 
+    }
 
    
 }

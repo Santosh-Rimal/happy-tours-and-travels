@@ -1,6 +1,7 @@
 @extends('layouts.frontend.single.master1')
 
 @section('content')
+
     <section class="w-full pt-[25px] md:pt-[58px]">
         <div class="relative overflow-hidden">
             <img class="w-full h-auto md:h-[500px] object-cover object-center"
@@ -135,12 +136,11 @@
                 </ul>
 
                 <div class="flex flex-col sm:flex-row gap-4 mt-4">
-                   
-                    <a
-                        href="{{ route('frontend.customize.trip.customize', $tripdetail->id) }}"  
-                        class="text-blue-700 border border-blue-500 font-semibold px-4 py-2 rounded hover:bg-blue-500 hover:cursor-pointer hover:text-white transition-colors duration-500">
+
+                    <a class="text-blue-700 border border-blue-500 font-semibold px-4 py-2 rounded hover:bg-blue-500 hover:cursor-pointer hover:text-white transition-colors duration-500"
+                        href="{{ route('frontend.customize.trip.customize', $tripdetail->id) }}">
                         CUSTOMIZE TRIP
-                </a>
+                    </a>
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@
                                     <li class="flex items-start gap-2">
                                         <span class="text-blue-500" />➜</span>
                                         <p>
-                                           {{ $highlight }}
+                                            {{ $highlight }}
                                         </p>
                                     </li>
                                 @empty
@@ -171,7 +171,7 @@
                     </div>
                 @endif
                 @if ($tripdetail->aboutTrip)
-                    <div id="overview" class="px-4 py-6">
+                    <div class="px-4 py-6" id="overview">
                         @forelse ($tripdetail->aboutTrip as $key=> $abouttrip)
                             <h2 class="text-3xl font-bold mb-4">
                                 {{ $abouttrip->title }}
@@ -187,7 +187,7 @@
 
                 <!-- Itinerary -->
                 @if ($tripdetail->itineray)
-                    <div id="itenary" class="px-4 py-6">
+                    <div class="px-4 py-6" id="itenary">
                         <h2 class="text-[24px] font-bold">Itinerary</h2>
 
                         @forelse ($tripdetail->itineray as $key=>$itineray)
@@ -212,7 +212,7 @@
                 @endif
 
                 <!-- What's Included -->
-                <div id="expect" class="px-4 py-6" id="whats-included">
+                <div class="px-4 py-6" id="expect" id="whats-included">
                     <h2 class="text-[24px] font-bold">What's Included</h2>
 
                     @if ($tripdetail->includes)
@@ -241,7 +241,7 @@
                     @endif
 
                     @if ($tripdetail->notincludes)
-                        <div id="itenary" class="itinerary-block">
+                        <div class="itinerary-block" id="itenary">
                             <div class="flex items-center justify-between mt-4">
                                 <div class="flex items-center gap-2 space-x-6">
                                     <span class="toggle-icon cursor-pointer text-2xl font-bold">+</span>
@@ -265,7 +265,7 @@
                     @endif
                 </div>
                 @if ($tripdetail->usefilinformation)
-                    <div id="useful-info" class="px-4 py-6">
+                    <div class="px-4 py-6" id="useful-info">
                         <h2 class="text-2xl font-semibold mb-4">Useful Information</h2>
                         <ul class="space-y-3">
                             @forelse ($tripdetail->usefilinformation as $usefilinfo)
@@ -293,7 +293,9 @@
                     <h2 class="font-bold text-[20px] text-start text-[#1f398e]">How Can I Help You?</h2>
                     <div class="flex gap-6 mt-4">
                         <div class="w-[150px] h-[150px] bg-green-300">
-                            <img class="w-full h-full object-center object-cover rounded-md" src="https://images.unsplash.com/photo-1745933115134-9cd90e3efcc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D" alt="hdjdj">
+                            <img class="w-full h-full object-center object-cover rounded-md"
+                                src="https://images.unsplash.com/photo-1745933115134-9cd90e3efcc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D"
+                                alt="hdjdj">
                         </div>
 
                         <div class="flex flex-col items-start">
@@ -307,10 +309,12 @@
                 </div>
 
                 <div class="flex flex-col items-center justify-center mt-10 py-8 px-3 bg-white">
-                    <h2 class="mx-2 bg-white shadow-xl px-8 py-2 mt-[-50px] text-[#1f398e] font-semibold text-base">SEND US YOUR ENQUIRY</h2>
-                    <p class="mt-8 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod atque doloremque exercitationem labore asperiores consectetur unde necessitatibus, quasi explicabo laboriosam!</p>
+                    <h2 class="mx-2 bg-white shadow-xl px-8 py-2 mt-[-50px] text-[#1f398e] font-semibold text-base">SEND US
+                        YOUR ENQUIRY</h2>
+                    <p class="mt-8 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod atque
+                        doloremque exercitationem labore asperiores consectetur unde necessitatibus, quasi explicabo
+                        laboriosam!</p>
                 </div>
-
 
             </div>
 
@@ -319,7 +323,6 @@
     </div>
 
     @include('layouts.frontend.affiliatePartners')
-
 
     <script>
         // scroll is landing too far down, probably because the sticky header or navbar is overlapping the section. This is common when you have a fixed/sticky navbar. so to fix this we are using this js
@@ -358,7 +361,5 @@
             });
         });
     </script>
-
-
 
 @endsection
