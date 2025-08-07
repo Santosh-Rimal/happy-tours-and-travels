@@ -8,7 +8,7 @@
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.index') }}">Home</a></li>
                     <li><a class="hover:text-blue-400" href="{{ route('frontend.about') }}">About Company</a></li>
                     <li>
-                        <a class="hover:text-blue-400" href="{{ route('frontend.trip.recommend.show') }}">Recommendation
+                        <a class="hover:text-blue-400" href="{{ route('recommend.show') }}">Recommendation
                             Packages</a>
                     </li>
                 </ul>

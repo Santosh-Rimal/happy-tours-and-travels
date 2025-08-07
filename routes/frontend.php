@@ -39,6 +39,6 @@ Route::get('/travel-guide',[travelGuideController::class,'index'])->name('fronte
 
 Route::get('/trip/{slug}', [IndexController::class,'single'])->name('frontend.trip.show');
 
-Route::get('/trip/{slug}', [IndexController::class,'recommend'])->name('frontend.trip.recommend.show');
+Route::get('/trip/recommendation', [IndexController::class,'recommend'])->name('recommend.show');
 
 Route::get('/customize-trip/{id}', [CustomizeTripController::class, 'customizebyid'])->name('frontend.customize.trip.customize');

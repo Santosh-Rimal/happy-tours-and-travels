@@ -15,8 +15,7 @@ class IndexController extends Controller
     public function index()
     {
 
-        $blogs = Blog::latest()->limit(3)->get(); 
-
+        $blogs = Blog::latest()->limit(3)->get();
         $galleries = Gallery::latest()->limit(3)->get(); 
         // $tripdetails=TripDetail::with('category')->select('id','category_id','trip_name')->get();
         $category=Category::latest()->select('id')->first();
@@ -39,16 +38,10 @@ class IndexController extends Controller
     }
 
 
-    public function recommend($trip_slug)
+    public function recommend()
     {
-    $tripdetail =
-    TripDetail::with('category','usefilinformation','notincludes','includes','itineray','aboutTrip','highlights')->where('trip_slug',
-    $trip_slug)->where('isrecommend',true)->firstOrFail();
-    return view('frontend.recommendation', compact('tripdetail'));
-
+       dd("Hello");
     }
-
-    
 
    
 }
