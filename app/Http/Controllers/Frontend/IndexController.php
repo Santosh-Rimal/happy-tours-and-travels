@@ -15,7 +15,8 @@ class IndexController extends Controller
     public function index()
     {
 
-        $blogs = Blog::latest()->limit(3)->get();
+        $blogs = Blog::latest()->limit(3)->get(); 
+
         $galleries = Gallery::latest()->limit(3)->get(); 
         // $tripdetails=TripDetail::with('category')->select('id','category_id','trip_name')->get();
         $category=Category::latest()->select('id')->first();
@@ -38,9 +39,22 @@ class IndexController extends Controller
     }
 
 
-    public function recommend()
+    public function test()
     {
-       dd("Hello");
+         $blogs = Blog::latest()->limit(3)->get();
+    
+         dd($blogs);
+         $galleries = Gallery::latest()->limit(3)->get();
+        
+         $category=Category::latest()->select('id')->first();
+         // dd($category_id);
+         $tripdetails =
+         TripDetail::with('category')->where('category_id',$category->id)->inRandomOrder()->limit(6)->get();
+         // dd($tripdetails->toArray());
+         $herosections=Herosection::get();
+         // dd($herosections);
+
+ 
     }
 
    

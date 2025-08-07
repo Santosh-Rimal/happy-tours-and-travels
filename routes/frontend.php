@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\DestinationController;
 use App\Http\Controllers\Frontend\travelGuideController;
 use App\Http\Controllers\Frontend\CustomizeTripController;
 use App\Http\Controllers\Frontend\Corporate_Responsibility;
+use App\Http\Controllers\Frontend\RecommendationController;
 
 Route::get('/',[IndexController::class,'index'])->name('frontend.index');
 Route::get('/blogs',[BlogController::class,'index'])->name('frontend.blogs');
@@ -39,6 +40,6 @@ Route::get('/travel-guide',[travelGuideController::class,'index'])->name('fronte
 
 Route::get('/trip/{slug}', [IndexController::class,'single'])->name('frontend.trip.show');
 
-Route::get('/trip/recommendation', [IndexController::class,'recommend'])->name('recommend.show');
+Route::get('/recommendation', [RecommendationController::class, 'index'])->name('frontend.recommendation.index');
 
 Route::get('/customize-trip/{id}', [CustomizeTripController::class, 'customizebyid'])->name('frontend.customize.trip.customize');
