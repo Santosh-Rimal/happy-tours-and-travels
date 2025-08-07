@@ -51,30 +51,7 @@
 
     <!-- Toggle Script -->
     <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
-        const mobileOverlay = document.getElementById("mobileOverlay");
-
-        //Track whether menu is open or closed
-        let isMenuOpen = false;
-
-        menuToggle.addEventListener("click", () => {
-            isMenuOpen = !isMenuOpen;
-
-            if (isMenuOpen) {
-                mobileMenu.classList.remove("max-h-0");
-                mobileMenu.classList.add("max-h-[1000px]");
-                mobileOverlay.classList.remove("hidden");
-            } else {
-                mobileMenu.classList.add("max-h-0");
-                mobileMenu.classList.remove("max-h-[1000px]");
-                mobileOverlay.classList.add("hidden");
-
-                // Auto-close all open submenus
-                document.querySelectorAll(".inner-bhutan-list").forEach((list) => {
-                    list.classList.remove("max-h-96");
-                    list.classList.add("max-h-0");
-                });
+        
 
 
                 // Reset "+" buttons
@@ -82,38 +59,11 @@
                     btn.textContent = "+";
                 });
 
-                // Close top-level Nepal/Bhutan containers
-                document.querySelectorAll('#mobileMenu > ul > li > div').forEach(submenu => {
-                    submenu.classList.add("hidden");
-                });
+     
 
-                // Reset rotate arrows
-                document.querySelectorAll('#mobileMenu > ul > li > button svg').forEach(arrow => {
-                    arrow.classList.remove("rotate-180");
-                });
+       
 
-            }
-        });
-
-        mobileOverlay.addEventListener("click", () => {
-            if (isMenuOpen) menuToggle.click();
-        });
-
-        //Toggle submenus
-        document.querySelectorAll("#mobileMenu button").forEach((button) => {
-            button.addEventListener("click", () => {
-                const submenu = button.nextElementSibling;
-                if (submenu) {
-                    submenu.classList.toggle("hidden");
-                }
-
-                //Rotate arrow icon
-                const arrow = button.querySelector("svg");
-                if (arrow) {
-                    arrow.classList.toggle("rotate-180");
-                }
-            });
-        });
+        
 
         //handle + inside Bhuran submenu
         document.querySelectorAll(".toggle-inner-list").forEach((toggleBtn) => {

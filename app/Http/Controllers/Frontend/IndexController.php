@@ -19,14 +19,14 @@ class IndexController extends Controller
 
         $galleries = Gallery::latest()->limit(3)->get(); 
         // $tripdetails=TripDetail::with('category')->select('id','category_id','trip_name')->get();
-        $category=Category::latest()->select('id')->first();
+        // $category=Category::latest()->select('id')->first();
         // dd($category_id);
-        $tripdetails = TripDetail::with('category')->where('category_id',$category->id)->inRandomOrder()->limit(6)->get();
+        $tripdetails = TripDetail::with('category')->inRandomOrder()->limit(6)->get();
         // dd($tripdetails->toArray());
         $herosections=Herosection::get();
         // dd($herosections);
 
-        $recommandations = TripDetail::with('category')->orderBy('id', 'desc')->limit(6)->get();
+        $recommandations = TripDetail::with('category')->orderBy('id', 'desc')->where('is_recommend', true)->limit(6)->get();
 
         return view('frontend.index',compact('tripdetails','herosections','recommandations', 'blogs', 'galleries'));
     }
